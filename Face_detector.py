@@ -29,7 +29,7 @@ class detector:
         cv2.destroyAllWindows()  # destroy
 
     def phone_cam(self):
-        webcam = cv2.VideoCapture(1)
+        webcam = cv2.VideoCapture(1, cv2.CAP_DSHOW)
         while 1:
 
             success_frame, frame = webcam.read()
