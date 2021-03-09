@@ -3,7 +3,7 @@ import numpy as np
 from random import randrange
 import mss
 import mss.tools
-
+import win32gui
 
 class detector:
     def __init__(self):
@@ -17,16 +17,13 @@ class detector:
             with mss.mss() as sct:
                 img = sct.grab(region)
 
-            # img = pyautogui.screenshot(region=(0, 0, 960, 540))  # capturing screenshot
-
             frame = np.array(img)  # converting the image into numpy array representation
-            frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)  # converting the BGR image into RGB image
             gray_scale_img = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            face_coord = self.trained_face_data.detectMultiScale(gray_scale_img)
+            face_coord = self.trained_face_data.detectMultiScale(gray_scale_img, scaleFactor=1.6)
             for f in face_coord:
                 cv2.rectangle(frame, f, (randrange(70, 256), randrange(70, 256), randrange(70, 256)), 5)
             cv2.imshow('Face Detector', frame)  # display screen/frame being recorded
-            if cv2.waitKey(50) == ord('q'):  # Wait for the user to press 'q' key to stop the recording
+            if cv2.waitKey(1) == ord('q'):  # Wait for the user to press 'q' key to stop the recording
                 break
 
         cv2.destroyAllWindows()  # destroy
