@@ -3,17 +3,17 @@ import numpy as np
 from random import randrange
 import mss
 import mss.tools
-import win32gui
+
 
 class detector:
     def __init__(self):
         self.trained_face_data = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
     def screen_record(self):
-        region = {'top': 0, 'left': 0, 'width': 1920, 'height': 1080}
+        region = {'top': 0, 'left': 0, 'width': 960, 'height': 1080}
         while 1:
             cv2.namedWindow("Face Detector", cv2.WINDOW_NORMAL)
-            cv2.resizeWindow("Face Detector", 960, 540)
+            cv2.resizeWindow("Face Detector", 960, 1080)
             with mss.mss() as sct:
                 img = sct.grab(region)
 
@@ -31,7 +31,6 @@ class detector:
     def phone_cam(self):
         webcam = cv2.VideoCapture(1, cv2.CAP_DSHOW)
         while 1:
-
             success_frame, frame = webcam.read()
             gray_scale_img = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             face_coord = self.trained_face_data.detectMultiScale(gray_scale_img)
