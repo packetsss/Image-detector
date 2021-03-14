@@ -7,3 +7,6 @@ Since I am using android and windows 10, I will be sharing my method of how to u
 - Use this link to setup DroidCam: https://www.wired.com/story/use-your-phone-as-webcam/
 - Connect your phone and pc
 - You are all set!
+
+
+Check out my Youtube Demo: https://www.youtube.com/watch?v=j7OA1daZGmo
