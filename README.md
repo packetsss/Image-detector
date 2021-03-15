@@ -1,5 +1,5 @@
-# Face-detector
-A simple application of cv2 trained data and use it to detect faces
+# Image-detector
+A simple application of cv2 trained data and use it to detect faces/other stuff
 
 
 ## phone_cam function
