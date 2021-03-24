@@ -7,7 +7,7 @@ import mss.tools
 
 class detector:
     def __init__(self):
-        self.trained_face_data = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+        self.trained_face_data = cv2.CascadeClassifier('face_recognition/data/haarcascade_frontalface_default.xml')
 
     def screen_record(self):
         region = {'top': 0, 'left': 0, 'width': 960, 'height': 1080}
@@ -44,7 +44,7 @@ class detector:
         cv2.destroyAllWindows()
 
     def image(self):
-        img = cv2.imread("1.jpg")
+        img = cv2.imread("face_recognition/1.jpg")
         gray_scale_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
         face_coord = self.trained_face_data.detectMultiScale(gray_scale_img)
 
@@ -55,4 +55,4 @@ class detector:
         cv2.waitKey()
 
 
-detector().screen_record()
+detector().image()
